@@ -1,0 +1,152 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "vehicle_type": {
+      "type": "string",
+      "enum": [
+        "camper_van",
+        "rv",
+        "boat",
+        "tiny_house"
+      ],
+      "default": "camper_van"
+    },
+    "battery_type": {
+      "type": "string",
+      "enum": [
+        "lifepo4",
+        "agm",
+        "lead_acid"
+      ],
+      "default": "lifepo4"
+    },
+    "days_autonomy": {
+      "type": "number",
+      "default": 2
+    },
+    "sun_hours": {
+      "type": "number",
+      "default": 4
+    },
+    "drive_hours": {
+      "type": "number",
+      "default": 1
+    },
+    "loads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "appliance_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "watts": {
+            "type": "number"
+          },
+          "hours_per_day": {
+            "type": "number"
+          },
+          "power_type": {
+            "type": "string"
+          },
+          "surge_watts": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "run_lengths": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "overrides": {
+      "type": "object",
+      "properties": {
+        "bank_ah": {
+          "type": "number"
+        },
+        "solar_w": {
+          "type": "number"
+        },
+        "charger_a": {
+          "type": "number"
+        },
+        "inverter_w": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "required": [
+    "user_id",
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

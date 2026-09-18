@@ -1,0 +1,60 @@
+{
+  "name": "Appliance",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Kitchen",
+        "Climate",
+        "Lighting",
+        "Electronics",
+        "Water",
+        "Comfort"
+      ]
+    },
+    "watts": {
+      "type": "number"
+    },
+    "hours_per_day": {
+      "type": "number"
+    },
+    "power_type": {
+      "type": "string",
+      "enum": [
+        "DC",
+        "AC"
+      ],
+      "default": "DC"
+    },
+    "surge_watts": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "name",
+    "watts",
+    "power_type"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
