@@ -1,0 +1,57 @@
+[
+  {
+    "awg": "2/0",
+    "ohms_per_meter": 0.000256,
+    "ampacity": 330
+  },
+  {
+    "awg": "4/0",
+    "ohms_per_meter": 0.000161,
+    "ampacity": 445
+  },
+  {
+    "awg": "14",
+    "ohms_per_meter": 0.00828,
+    "ampacity": 35
+  },
+  {
+    "awg": "12",
+    "ohms_per_meter": 0.00521,
+    "ampacity": 45
+  },
+  {
+    "awg": "10",
+    "ohms_per_meter": 0.00328,
+    "ampacity": 60
+  },
+  {
+    "awg": "8",
+    "ohms_per_meter": 0.00206,
+    "ampacity": 80
+  },
+  {
+    "awg": "6",
+    "ohms_per_meter": 0.0013,
+    "ampacity": 120
+  },
+  {
+    "awg": "4",
+    "ohms_per_meter": 0.000815,
+    "ampacity": 160
+  },
+  {
+    "awg": "2",
+    "ohms_per_meter": 0.000513,
+    "ampacity": 210
+  },
+  {
+    "awg": "1",
+    "ohms_per_meter": 0.000406,
+    "ampacity": 245
+  },
+  {
+    "awg": "1/0",
+    "ohms_per_meter": 0.000322,
+    "ampacity": 285
+  }
+]

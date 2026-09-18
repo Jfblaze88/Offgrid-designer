@@ -1,62 +1,54 @@
-# Base44 Project
+# OffGrid Designer
 
-Use this repository to run and edit the app locally, then publish changes back through Base44.
+A static, client-only wizard for sizing a 12V off-grid electrical system
+(camper van, RV, boat, or tiny house). There is no backend, no database, and
+no user accounts — the appliance catalog, wire spec table, and fuse size
+table ship as static JSON in `src/data/`, and the in-progress build lives in
+React state for the duration of the session.
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
-
-## Prerequisites
-
-1. Clone the repository using the project's Git URL.
-2. Navigate to the project directory.
-3. Install dependencies: `npm install`.
-4. Install the Base44 CLI: `npm install -g base44@latest`.
-5. Install [Deno](https://docs.deno.com/runtime/getting_started/installation/) — the local Base44 backend runs on it.
-
-Run `base44 --help` (or see the [CLI reference](https://docs.base44.com/developers/references/cli/commands/introduction)) for the full command surface.
-
-## Run Locally
-
-Three commands, from the project root:
+## Run locally
 
 ```bash
-base44 login   # one-time per machine
-base44 link    # one-time per clone
-base44 dev     # local backend + frontend together
+npm install
+npm run dev
 ```
 
-Open the frontend URL that `base44 dev` prints (typically `http://localhost:5173`).
+Open the URL Vite prints (typically `http://localhost:5173`).
 
-Notes:
-
-- **Every fresh clone needs `base44 link`.** It writes `base44/.app.jsonc` (the app-id pointer), which is deliberately gitignored. Your app id is in the Builder URL (`app.base44.com/apps/<id>/...`); `base44 link --help` shows the non-interactive flags.
-- **`base44 dev` runs the frontend for you** (via `site.serveCommand` in this repo's `base44/config.jsonc`) — never run `npm run dev` yourself: alone it serves a UI with no backend behind it (`[base44] Proxy not enabled`, every `/api` call fails), and alongside `base44 dev` the second Vite silently takes the next port and you end up looking at the wrong one.
-- **The app must be published at least once for the UI to load under `base44 dev`.** The frontend boots by fetching app settings from the hosted app; before the first publish that fails and every page redirects to login. The local API works regardless.
-- Entities, functions, and auth run locally — entity data is **in-memory only**, wiped when `base44 dev` restarts. Everything else (Core integrations, OAuth login) is forwarded to your deployed app. Full breakdown: [Local development overview](https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview).
-
-## Frontend Only, Hosted Backend
-
-To work on just the frontend against your app's live hosted backend:
+## Build
 
 ```bash
-base44 dev --remote
+npm run build
 ```
 
-⚠️ In this mode writes go to your app's **production data** — plain `base44 dev` keeps everything local.
+This produces a static `dist/` folder — plain HTML/CSS/JS, no server
+required.
 
-## Publish Your Changes
+## Deploy to Cloudflare Pages
 
-After pushing your changes to git, open the Base44 dashboard and publish the app:
+Point Cloudflare Pages at this repo (or drag-and-drop the `dist/` folder in
+the Pages dashboard) with:
 
-```bash
-base44 dashboard open
-```
+- **Build command:** `npm run build`
+- **Build output directory:** `dist`
 
-This repo syncs to Base44 through git, so publish from the dashboard rather than `base44 deploy` — a CLI deploy ships your local tree directly, bypassing the sync, and the deployed state silently diverges from the repo.
+No environment variables or backend services are needed.
 
-## Docs & Support
+## Project structure
 
-GitHub integration: [https://docs.base44.com/developers/app-code/local-development/github](https://docs.base44.com/developers/app-code/local-development/github)
+- `src/lib/calc.js` — the electrical sizing math (battery bank, solar,
+  inverter, DC-DC charger, wire/fuse selection). Pure functions, no I/O.
+- `src/lib/buildSheet.js` — derives the parts list and install order from
+  `calc.js`'s output.
+- `src/data/` — the appliance catalog, wire spec table, and fuse size table,
+  as static JSON.
+- `src/pages/Home.jsx` — owns the wizard state (`project`) and step
+  navigation.
+- `src/components/wizard/` — the four wizard steps (Load, System, Wiring,
+  Build Sheet) and their subcomponents.
 
-Local development: [https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview](https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview)
+## Safety
 
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+This tool produces planning estimates only. Every build includes a safety
+disclaimer (in the wizard footer and on the printable Build Sheet) that the
+design must be checked by a qualified installer before you build it.

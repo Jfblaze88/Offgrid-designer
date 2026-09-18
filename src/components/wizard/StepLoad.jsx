@@ -4,7 +4,6 @@ import ApplianceCatalog from "./ApplianceCatalog";
 import LoadRow from "./LoadRow";
 import LoadTotals from "./LoadTotals";
 import CustomApplianceForm from "./CustomApplianceForm";
-import DescribeBuild from "./DescribeBuild";
 import { loadSummary } from "@/lib/calc";
 
 export default function StepLoad({ project, catalog, update }) {
@@ -17,28 +16,12 @@ export default function StepLoad({ project, catalog, update }) {
   const change = (i, patch) => update({ loads: loads.map((l, j) => (j === i ? { ...l, ...patch } : l)) });
   const remove = (i) => update({ loads: loads.filter((_, j) => j !== i) });
 
-  const fillFromDescription = (appliances) =>
-    update({
-      loads: appliances.map((a, i) => ({
-        appliance_id: `ai-${Date.now()}-${i}`,
-        name: a.name,
-        category: a.category || "Custom",
-        watts: a.watts,
-        hours_per_day: a.hours_per_day ?? 1,
-        power_type: a.power_type,
-        surge_watts: a.surge_watts || a.watts,
-        quantity: a.quantity || 1,
-      })),
-    });
-
   return (
     <div className="space-y-8">
       <header>
         <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight">What will you power?</h2>
         <p className="mt-2 text-muted-foreground max-w-xl">Tap appliances to add them, then adjust watts, quantity and hours of use per day.</p>
       </header>
-
-      <DescribeBuild onResult={fillFromDescription} />
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
         <section className="lg:col-span-3 space-y-3">

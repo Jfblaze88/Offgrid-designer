@@ -1,0 +1,227 @@
+[
+  {
+    "id": "6aac099cd761e76302627271",
+    "name": "12V compressor fridge",
+    "category": "Kitchen",
+    "watts": 45,
+    "power_type": "DC",
+    "surge_watts": 90,
+    "hours_per_day": 8.0
+  },
+  {
+    "id": "6aac099cd761e76302627272",
+    "name": "Induction cooktop",
+    "category": "Kitchen",
+    "watts": 1800,
+    "power_type": "AC",
+    "surge_watts": 1800,
+    "hours_per_day": 0.5
+  },
+  {
+    "id": "6aac099cd761e76302627273",
+    "name": "Microwave",
+    "category": "Kitchen",
+    "watts": 1000,
+    "power_type": "AC",
+    "surge_watts": 1500,
+    "hours_per_day": 0.2
+  },
+  {
+    "id": "6aac099cd761e76302627274",
+    "name": "Electric kettle",
+    "category": "Kitchen",
+    "watts": 1500,
+    "power_type": "AC",
+    "surge_watts": 1500,
+    "hours_per_day": 0.15
+  },
+  {
+    "id": "6aac099cd761e76302627275",
+    "name": "Coffee maker",
+    "category": "Kitchen",
+    "watts": 900,
+    "power_type": "AC",
+    "surge_watts": 900,
+    "hours_per_day": 0.2
+  },
+  {
+    "id": "6aac099cd761e76302627276",
+    "name": "Blender",
+    "category": "Kitchen",
+    "watts": 500,
+    "power_type": "AC",
+    "surge_watts": 900,
+    "hours_per_day": 0.1
+  },
+  {
+    "id": "6aac099cd761e76302627277",
+    "name": "Diesel heater",
+    "category": "Climate",
+    "watts": 25,
+    "power_type": "DC",
+    "surge_watts": 100,
+    "hours_per_day": 6.0
+  },
+  {
+    "id": "6aac099cd761e76302627278",
+    "name": "Roof vent fan",
+    "category": "Climate",
+    "watts": 30,
+    "power_type": "DC",
+    "surge_watts": 30,
+    "hours_per_day": 8.0
+  },
+  {
+    "id": "6aac099cd761e76302627279",
+    "name": "Air conditioner (12V)",
+    "category": "Climate",
+    "watts": 600,
+    "power_type": "DC",
+    "surge_watts": 900,
+    "hours_per_day": 4.0
+  },
+  {
+    "id": "6aac099cd761e7630262727a",
+    "name": "Electric blanket",
+    "category": "Climate",
+    "watts": 60,
+    "power_type": "AC",
+    "surge_watts": 60,
+    "hours_per_day": 6.0
+  },
+  {
+    "id": "6aac099cd761e7630262727b",
+    "name": "LED strip lights",
+    "category": "Lighting",
+    "watts": 10,
+    "power_type": "DC",
+    "surge_watts": 10,
+    "hours_per_day": 5.0
+  },
+  {
+    "id": "6aac099cd761e7630262727c",
+    "name": "Reading lights (pair)",
+    "category": "Lighting",
+    "watts": 6,
+    "power_type": "DC",
+    "surge_watts": 6,
+    "hours_per_day": 3.0
+  },
+  {
+    "id": "6aac099cd761e7630262727d",
+    "name": "Exterior awning lights",
+    "category": "Lighting",
+    "watts": 12,
+    "power_type": "DC",
+    "surge_watts": 12,
+    "hours_per_day": 2.0
+  },
+  {
+    "id": "6aac099cd761e7630262727e",
+    "name": "Laptop",
+    "category": "Electronics",
+    "watts": 65,
+    "power_type": "AC",
+    "surge_watts": 65,
+    "hours_per_day": 4.0
+  },
+  {
+    "id": "6aac099cd761e7630262727f",
+    "name": "Phone / USB charging",
+    "category": "Electronics",
+    "watts": 10,
+    "power_type": "DC",
+    "surge_watts": 10,
+    "hours_per_day": 3.0
+  },
+  {
+    "id": "6aac099cd761e76302627280",
+    "name": "Starlink",
+    "category": "Electronics",
+    "watts": 50,
+    "power_type": "DC",
+    "surge_watts": 75,
+    "hours_per_day": 6.0
+  },
+  {
+    "id": "6aac099cd761e76302627281",
+    "name": "TV / monitor",
+    "category": "Electronics",
+    "watts": 60,
+    "power_type": "AC",
+    "surge_watts": 60,
+    "hours_per_day": 3.0
+  },
+  {
+    "id": "6aac099cd761e76302627282",
+    "name": "Camera & drone charging",
+    "category": "Electronics",
+    "watts": 40,
+    "power_type": "AC",
+    "surge_watts": 40,
+    "hours_per_day": 1.5
+  },
+  {
+    "id": "6aac099cd761e76302627283",
+    "name": "Water pump",
+    "category": "Water",
+    "watts": 60,
+    "power_type": "DC",
+    "surge_watts": 120,
+    "hours_per_day": 0.5
+  },
+  {
+    "id": "6aac099cd761e76302627284",
+    "name": "Water heater (electric)",
+    "category": "Water",
+    "watts": 1200,
+    "power_type": "AC",
+    "surge_watts": 1200,
+    "hours_per_day": 0.5
+  },
+  {
+    "id": "6aac099cd761e76302627285",
+    "name": "Shower / grey water pump",
+    "category": "Water",
+    "watts": 40,
+    "power_type": "DC",
+    "surge_watts": 80,
+    "hours_per_day": 0.3
+  },
+  {
+    "id": "6aac099cd761e76302627286",
+    "name": "Composting toilet fan",
+    "category": "Comfort",
+    "watts": 3,
+    "power_type": "DC",
+    "surge_watts": 3,
+    "hours_per_day": 24.0
+  },
+  {
+    "id": "6aac099cd761e76302627287",
+    "name": "CPAP machine",
+    "category": "Comfort",
+    "watts": 40,
+    "power_type": "DC",
+    "surge_watts": 60,
+    "hours_per_day": 8.0
+  },
+  {
+    "id": "6aac099cd761e76302627288",
+    "name": "Hair dryer",
+    "category": "Comfort",
+    "watts": 1200,
+    "power_type": "AC",
+    "surge_watts": 1200,
+    "hours_per_day": 0.1
+  },
+  {
+    "id": "6aac099cd761e76302627289",
+    "name": "Bluetooth speaker",
+    "category": "Comfort",
+    "watts": 15,
+    "power_type": "DC",
+    "surge_watts": 15,
+    "hours_per_day": 3.0
+  }
+]
